@@ -1,9 +1,12 @@
 import Card from "@/components/Card";
 import { useEffect, useState } from "react";
+
+const base = import.meta.env.APP_BASE_PATH || "";
+
 function Dashboard() {
   let [spdkVersion, setSpdkVersion] = useState("unknown");
   useEffect(() => {
-    fetch("/api/v1/spdk/spdk_version").then((response) =>
+    fetch(`${base}/api/v1/spdk/spdk_version`).then((response) =>
       response.json().then((data) => {
         setSpdkVersion(data.version);
       })
