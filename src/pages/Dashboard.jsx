@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 function Dashboard() {
   let [spdkVersion, setSpdkVersion] = useState("unknown");
   useEffect(() => {
-    fetch("http://localhost:5285/api/v1/spdk/spdk_version").then((response) =>
+    fetch("/api/v1/spdk/spdk_version").then((response) =>
       response.json().then((data) => {
         setSpdkVersion(data.version);
       })
